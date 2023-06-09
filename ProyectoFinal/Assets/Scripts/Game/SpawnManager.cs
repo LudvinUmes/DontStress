@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
+//    x -0.92
+//y 9 
+//z 0.13
     // Start is called before the first frame update
     public GameObject[] Prefabs;
-    private float spawnRangeX = 15;
-    private float spawnPosZ = 20;
     public float startDelay = 2;
     public float spawnInterval = 1;
     // Start is called before the first frame update
@@ -24,14 +25,11 @@ public class SpawnManager : MonoBehaviour
     void SpawnRandom()
     {
         Vector3 spawnPos;
-        do
-        {
-            float spawnX = Random.Range(-spawnRangeX, spawnRangeX);
-            spawnPos = new Vector3(spawnX, 0, spawnPosZ);
-        } while (Physics.CheckSphere(spawnPos, 3.0f));
-
-        int animalIndex = Random.Range(0, Prefabs.Length);
-        Instantiate(Prefabs[animalIndex], spawnPos,
-                    Prefabs[animalIndex].transform.rotation);
+            float spawnX = Random.Range(-8.8f, 8.8f);
+            spawnPos = new Vector3(spawnX, 9f, 0.13f);
+       
+        int foodIndex = Random.Range(0, Prefabs.Length);
+        Instantiate(Prefabs[foodIndex], spawnPos,
+        Prefabs[foodIndex].transform.rotation);
     }
 }
